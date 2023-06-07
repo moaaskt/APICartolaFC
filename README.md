@@ -4,7 +4,8 @@
 <a href="https://ibb.co/4Vf5ZP8" height="500px"><img src="https://i.ibb.co/87BSD6r/img.png" alt="img" border="0"></a></p>
 
 
-Esta é uma API para acessar dados e estatísticas do jogo CartolaFC.
+
+Sistema de busca do CartolaFC com exibição de informações sobre atletas, permitindo pesquisar por nome de jogador, filtrar e ordenar a lista de atletas com base na pontuação.
 
 ## Rotas
 
