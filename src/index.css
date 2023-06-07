@@ -1,0 +1,6 @@
+body{
+    background-image: url(assets/img/background1.webp);
+    background-repeat: no-repeat; /* para não repetir a imagem */
+  background-position: center; /* para centralizar a imagem */
+  background-size: cover; /* para ajustar o tamanho da imagem para cobrir todo o elemento */
+}
