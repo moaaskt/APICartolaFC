@@ -1,4 +1,6 @@
+
 # API do CartolaFC
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
 <p align="center">
 <a href="https://ibb.co/4Vf5ZP8" height="500px"><img src="https://i.ibb.co/87BSD6r/img.png" alt="img" border="0"></a></p>
