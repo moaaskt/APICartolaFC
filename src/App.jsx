@@ -2,11 +2,7 @@ import AtletasList from "./components/AtletasList";
 import PosicoesList from "./components/PosicoesList";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import "./App.css";
-=======
-import './App.css'
->>>>>>> origin/main
 
 const App = () => {
   const [atletas, setAtletas] = useState([]);
@@ -15,11 +11,7 @@ const App = () => {
   const [posicoes, setPosicoes] = useState([]);
   const [valorPesquisado, setValorPesquisado] = useState("");
   const [ordenarPorPontuacao, setOrdenarPorPontuacao] = useState(false);
-<<<<<<< HEAD
-  const [rodadaSelecionada, setRodadaSelecionada] = useState(1);
-=======
   const [rodadaSelecionada, setRodadaSelecionada] = useState(1)
->>>>>>> origin/main
 
   const pesquisarJogador = () => {
     const atletasPesquisados = atletas.filter((atleta) => {
@@ -39,13 +31,6 @@ const App = () => {
     }
   };
 
-<<<<<<< HEAD
-  const selecionarRodada = ({ target }) => {
-    setRodadaSelecionada(target.value);
-  };
-
-=======
->>>>>>> origin/main
   const toggleOrdenarPorPontuacao = () => {
     setOrdenarPorPontuacao(!ordenarPorPontuacao);
   };
@@ -58,17 +43,9 @@ const App = () => {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
-    if (ordenarPorPontuacao) {
-      const ordernarAtletas = [...atletas]; // Fazer uma cópia do array atletas
-      const atletasOrdenados = ordernarAtletas.sort(
-        (a, b) => b.pontuacao - a.pontuacao
-      );
-=======
     const ordernarAtletas = atletas
     if (ordenarPorPontuacao) {
       const atletasOrdenados = ordernarAtletas.sort((a, b) => b.pontuacao - a.pontuacao);
->>>>>>> origin/main
       setAtletasPesquisados(atletasOrdenados);
     }
   }, [ordenarPorPontuacao]);
@@ -77,21 +54,13 @@ const App = () => {
     const fetchAtletas = async () => {
       try {
         const response = await axios.get(
-<<<<<<< HEAD
-          `https://api.cartola.globo.com/atletas/pontuados/${rodadaSelecionada}`
-=======
           `https://api.cartola.globo.com/atletas/pontuados/${rodadaSelecionada}` 
->>>>>>> origin/main
         );
         setAtletas(Object.values(response.data.atletas));
         setAtletasPesquisados(Object.values(response.data.atletas));
         setClubes(Object.values(response.data.clubes));
         setPosicoes(Object.values(response.data.posicoes));
-<<<<<<< HEAD
-        setOrdenarPorPontuacao(false);
-=======
         setOrdenarPorPontuacao(false)
->>>>>>> origin/main
       } catch (error) {
         console.error("Error fetching atletas:", error);
       }
@@ -102,45 +71,6 @@ const App = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <img
-        className="logopng"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cartola_FC_logo.svg/2560px-Cartola_FC_logo.svg.png"
-        alt=""
-      />
-      <div className="content">
-        <input
-          title="insira o nome do atleta"
-          onChange={(event) => setValorPesquisado(event.target.value)}
-          type="text"
-          placeholder="Nome do jogador"
-        />{" "}
-        <button title="Pesquisar atleta" onClick={pesquisarJogador}>
-          Pesquisar
-        </button>
-        <button
-          title="Ordendar por maior pontuação"
-          onClick={toggleOrdenarPorPontuacao}
-        >
-          {ordenarPorPontuacao
-            ? "Ordenado por Pontuação"
-            : "Ordenar por Pontuação"}
-        </button>
-        <select
-          title="Selecione a rodada"
-          onChange={(event) => selecionarRodada(event)}
-        >
-          <option value={1}>1º Rodada</option>
-          <option value={2}>2º Rodada</option>
-          <option value={3}>3º Rodada</option>
-          <option>4º Rodada</option>
-          <option>5º Rodada</option>
-          <option>6º Rodada</option>
-          <option>7º Rodada</option>
-          <option>8º Rodada</option>
-          <option>9º Rodada</option>
-        </select>
-=======
       <img className="logopng" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cartola_FC_logo.svg/2560px-Cartola_FC_logo.svg.png" alt="" />
       <div className="content">
       <input
@@ -168,7 +98,6 @@ const App = () => {
         <option>8</option>
         <option>9</option>
       </select>
->>>>>>> origin/main
       </div>
       {atletasPesquisados && (
         <AtletasList
