@@ -1,5 +1,3 @@
-import AtletasList from "./components/AtletasList";
-import PosicoesList from "./components/PosicoesList";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
@@ -12,7 +10,6 @@ const App = () => {
   const [valorPesquisado, setValorPesquisado] = useState("");
   const [ordenarPorPontuacao, setOrdenarPorPontuacao] = useState(false);
   const [rodadaSelecionada, setRodadaSelecionada] = useState(1);
-  const [rodadaSelecionada, setRodadaSelecionada] = useState(1)
 
   const pesquisarJogador = () => {
     const atletasPesquisados = atletas.filter((atleta) => {
@@ -26,7 +23,6 @@ const App = () => {
     } else {
       if (ordenarPorPontuacao) {
         atletasPesquisados.sort((a, b) => b.pontuacao - a.pontuacao);
-        console.log(atletasPesquisados);
       }
       setAtletasPesquisados(atletasPesquisados);
     }
@@ -53,9 +49,6 @@ const App = () => {
       const atletasOrdenados = ordernarAtletas.sort(
         (a, b) => b.pontuacao - a.pontuacao
       );
-    const ordernarAtletas = atletas
-    if (ordenarPorPontuacao) {
-      const atletasOrdenados = ordernarAtletas.sort((a, b) => b.pontuacao - a.pontuacao);
       setAtletasPesquisados(atletasOrdenados);
     }
   }, [ordenarPorPontuacao]);
@@ -65,14 +58,11 @@ const App = () => {
       try {
         const response = await axios.get(
           `https://api.cartola.globo.com/atletas/pontuados/${rodadaSelecionada}`
-          `https://api.cartola.globo.com/atletas/pontuados/${rodadaSelecionada}` 
         );
         setAtletas(Object.values(response.data.atletas));
         setAtletasPesquisados(Object.values(response.data.atletas));
         setClubes(Object.values(response.data.clubes));
         setPosicoes(Object.values(response.data.posicoes));
-        setOrdenarPorPontuacao(false);
-        setOrdenarPorPontuacao(false)
       } catch (error) {
         console.error("Error fetching atletas:", error);
       }
