@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import AtletasList from "./components/AtletasList";
 
 const App = () => {
   const [atletas, setAtletas] = useState([]);
