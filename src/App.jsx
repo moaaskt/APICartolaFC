@@ -145,6 +145,7 @@ const App = () => {
           posicoes={posicoes}
         />
       )}
+         </div>
     </div>
   );
 };
