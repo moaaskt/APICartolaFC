@@ -21,8 +21,8 @@ const AtletasList = (props) => {
 
   return (
     <div className="container">
-      <h2 >Atletas mais pontuados da última rodada</h2>
-      <ul className="list">
+      <h2 >Atletas mais pontuados da última rodada:</h2>
+      <ul className="">
         {props.atletas.map((atleta, index) => (
           <li key={index} className="list-item player-card">
             <img src={atleta.foto.replace("FORMATO", "220x220")} alt="" />
@@ -38,7 +38,7 @@ const AtletasList = (props) => {
                 {procurarPosicao(atleta.posicao_id).abreviacao}
               </span>
             </div>
-            <span className="player-score">Pontuação: </span> <div className="pontuacao">{atleta.pontuacao}</div>
+            <span className="player-score">Pontuação: {atleta.pontuacao}</span>
           </li>
         ))}
       </ul>

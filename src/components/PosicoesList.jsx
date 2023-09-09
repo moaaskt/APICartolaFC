@@ -11,4 +11,3 @@ const PosicoesList = (props) => {
 };
 
 export default PosicoesList;
-

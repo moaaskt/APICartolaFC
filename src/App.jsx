@@ -1,7 +1,8 @@
+import AtletasList from "./components/AtletasList";
+import PosicoesList from "./components/PosicoesList";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./App.css";
-import AtletasList from "./components/AtletasList";
+import "./components/styles.css"
 
 const App = () => {
   const [atletas, setAtletas] = useState([]);
@@ -10,7 +11,7 @@ const App = () => {
   const [posicoes, setPosicoes] = useState([]);
   const [valorPesquisado, setValorPesquisado] = useState("");
   const [ordenarPorPontuacao, setOrdenarPorPontuacao] = useState(false);
-  const [rodadaSelecionada, setRodadaSelecionada] = useState(1);
+  const [rodadaSelecionada, setRodadaSelecionada] = useState(1)
 
   const pesquisarJogador = () => {
     const atletasPesquisados = atletas.filter((atleta) => {
@@ -24,13 +25,10 @@ const App = () => {
     } else {
       if (ordenarPorPontuacao) {
         atletasPesquisados.sort((a, b) => b.pontuacao - a.pontuacao);
+        console.log(atletasPesquisados);
       }
       setAtletasPesquisados(atletasPesquisados);
     }
-  };
-
-  const selecionarRodada = ({ target }) => {
-    setRodadaSelecionada(target.value);
   };
 
   const toggleOrdenarPorPontuacao = () => {
@@ -45,11 +43,9 @@ const App = () => {
   };
 
   useEffect(() => {
+    const ordernarAtletas = atletas
     if (ordenarPorPontuacao) {
-      const ordernarAtletas = [...atletas]; // Fazer uma cópia do array atletas
-      const atletasOrdenados = ordernarAtletas.sort(
-        (a, b) => b.pontuacao - a.pontuacao
-      );
+      const atletasOrdenados = ordernarAtletas.sort((a, b) => b.pontuacao - a.pontuacao);
       setAtletasPesquisados(atletasOrdenados);
     }
   }, [ordenarPorPontuacao]);
@@ -58,12 +54,13 @@ const App = () => {
     const fetchAtletas = async () => {
       try {
         const response = await axios.get(
-          `https://api.cartola.globo.com/atletas/pontuados/${rodadaSelecionada}`
+          `https://api.cartola.globo.com/atletas/pontuados/${rodadaSelecionada}` 
         );
         setAtletas(Object.values(response.data.atletas));
         setAtletasPesquisados(Object.values(response.data.atletas));
         setClubes(Object.values(response.data.clubes));
         setPosicoes(Object.values(response.data.posicoes));
+        setOrdenarPorPontuacao(false)
       } catch (error) {
         console.error("Error fetching atletas:", error);
       }
@@ -72,7 +69,9 @@ const App = () => {
     fetchAtletas();
   }, [rodadaSelecionada]);
 
-   return (
+  
+
+  return (
     <div>
       <img className="logopng" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cartola_FC_logo.svg/2560px-Cartola_FC_logo.svg.png" alt="" />
       <div className="content">
@@ -112,6 +111,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;
